@@ -1,0 +1,87 @@
+﻿@using System.Diagnostics
+@using Voerum.Controllers
+@using Voerum.Models
+@model Voerum.Models.Recipe
+
+<div class="search-result-container container text-center">
+    <h2 class="">@Html.DisplayFor(model => model.Name)</h2>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Ingredients)
+        </dt>
+
+        @foreach (var i in Model.Ingredients)
+        {
+            <dd>
+                <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span> @i.Text
+            </dd>
+        }
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Steps)
+        </dt>
+
+        @foreach (var s in Model.Steps.OrderBy(s => s.Order))
+        {
+            <dd>
+                @s.Order. @s.Text
+            </dd>
+        }
+
+        <div>
+            @for (int i = 0; i < ((Model.AverageRating + 50) / 100); i++)
+            {
+                <span class="glyphicon bi-star"></span>
+            }
+        </div>
+    </dl>
+
+    @if (User.Identity.IsAuthenticated && @ViewBag.Check!=1)
+    {
+        <div class="right btn-info" onclick="$('#rating-foldout').slideToggle()">Waardeer dit recept!</div>
+
+        <div id="rating-foldout" class="section section-hidden" style="display: none;">
+            <div class="row">
+                @Html.ActionLink("1 ster", "CreateRating", "Recipe", new
+                {
+                    rating = 1,
+                    recipeId = Model.Id
+                }, null)
+            </div>
+            <div class="row">
+                @Html.ActionLink("2 sterren", "CreateRating", "Recipe", new
+                {
+                    rating = 2,
+                    recipeId = Model.Id
+                }, null)
+            </div>
+            <div class="row">
+                @Html.ActionLink("3 sterren", "CreateRating", "Recipe", new
+                {
+                    rating = 3,
+                    recipeId = Model.Id
+                }, null)
+            </div>
+            <div class="row">
+                @Html.ActionLink("4 sterren", "CreateRating", "Recipe", new
+                {
+                    rating = 4,
+                    recipeId = Model.Id
+                }, null)
+            </div>
+            <div class="row">
+                @Html.ActionLink("5 sterren", "CreateRating", "Recipe", new
+                {
+                    rating = 5,
+                    recipeId = Model.Id
+                }, null)
+            </div>
+        </div>
+    }
+
+    <p>
+        @*Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |*@
+        <a href="/">Teruggaan</a>
+    </p>
+</div>

@@ -1,0 +1,76 @@
+﻿@using System.Diagnostics
+@using Voerum.Controllers
+@using Voerum.Models
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.6.4.min.js"></script>
+
+<nav class="navbar">
+    <div class="glyphicon bi-pencil" onclick="$('#new-recipe-foldout').slideToggle()"></div>
+    <div> <span class="col-1"><br /></span></div>
+    @if (ViewBag.Activation != null)
+    {
+        <div class="center glyphicon bi-star-half" onclick="$('#ratings-foldout').slideToggle()"></div>
+        <div> <span class="col-1"><br /></span></div>
+    }
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="right bi-chevron-bar-right logout-button"></div>
+    }
+
+    <div class="clock">
+        <div id="Date"></div>
+        <ul>
+            <li id="hours"></li>
+            <li id="point">:</li>
+            <li id="min"></li>
+            <li id="point">:</li>
+            <li id="sec"></li>
+        </ul>
+    </div>
+    <div class="right bi-person-circle" onclick="$('#login-foldout').slideToggle()"></div>
+</nav>
+<div id="login-foldout" class="section section-hidden" style="display: none;">
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        @RenderPage("~/Views/Account/Index.cshtml")
+    }
+
+    else
+    {
+        @RenderPage("~/Views/Account/Login.cshtml")
+    }
+</div>
+
+<div id="new-recipe-foldout" class="section section-hidden" style="display: none;">
+    @RenderPage("~/Views/Recipe/Create.cshtml")
+</div>
+
+<div class="section">
+    <img class="logo" src="~/Images/logo.png" alt="Voerum" />
+
+    <form id="search">
+        <input name="recipe" id="recipe-search" class="search-field" type="text" placeholder="Recept of Ingrediënt" oninput="" />
+        <input name="ingredient" id="ingredient-search" class="search-field" type="text" placeholder="Ingrediënt" style="display: none" />
+    </form>
+    @if (ViewBag.Activation != null)
+    {
+
+        <div id="ratings-foldout" class="section section-hidden" style="display: none;">
+            @RenderPage("~/Views/Recipe/Ratings.cshtml")
+        </div>
+    }
+    <div id="search-results" class=""></div>
+</div>
+
+<div class="right btn-dark" onclick="$('#KookTips-foldout').slideToggle()">Klik hier voor kooktips</div>
+
+<div id="KookTips-foldout" class="section section-hidden" style="display: none;">
+    @RenderPage("~/Views/Home/KookTips.cshtml")
+</div>
+
+<footer>
+
+    <p>&copy; @DateTime.Now.Year - Voerum C3</p>
+</footer>

@@ -1,0 +1,39 @@
+﻿@using System.Diagnostics
+@using Voerum.Controllers
+@using Voerum.Models
+@model Voerum.Models.Recipe
+
+<a href="#" class="section-close-button glyphicon glyphicon-remove"></a>
+<form id="new-recipe-form" method="post" action="#" onsubmit="submitNewRecipe">
+    @Html.AntiForgeryToken()
+    <h3>
+        <input class="search-field" placeholder="Nieuw recept" name="name" />
+    </h3>
+    <div class="row">
+        <ul class="repeat-list col-lg-6 col-xs-12">
+            <li class="row">
+                <span class="col-1 repeat-list-add-button bi-plus-square text-success"></span>
+                <div class="col-11 repeat-list-header">Ingrediënten</div>
+            </li>
+            <li class="repeat-element row" style="display: none;">
+                <span class="col-1 repeat-list-remove-button bi-x-square text-warning text-right" onclick="removeMeFromList(this)"></span>
+                <input class="col-11 remove-width-restriction" type="text" name="ingredient" />
+            </li>
+        </ul>
+        <ol class="repeat-list col-lg-6 col-12">
+            <li class="row">
+                <span class="col-1 repeat-list-add-button bi-plus-square text-success text-right"></span>
+                <div class="col-11 repeat-list-header">Stappen</div>
+            </li>
+            <li class="repeat-element row" style="display: none;">
+                <span class="col-1 repeat-list-remove-button bi-x-square text-warning text-right" onclick="removeMeFromList(this)"></span>
+                <input type="text" class="col-11 remove-width-restriction" name="step" />
+            </li>
+        </ol>
+    </div>
+    @if (@ViewBag.UserId != null)
+    {
+        <input type="text" class="section-hidden" hidden="" id="UserId" name="UserId" value="@ViewBag.UserId"/>
+    }
+    <button type="button" class="search-field success" onclick="submitNewRecipe()">Verstuur mijn recept!</button>
+</form>

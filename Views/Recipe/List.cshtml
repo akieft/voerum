@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Voerum.Models.Recipe>
+
+@{
+    Layout = null;
+}
+<div class="search-result-container section">
+    @if (@ViewBag.SearchCount > 0)
+    {
+
+        <h2>@ViewBag.SearchCount results for @ViewBag.SearchString:</h2>
+        <br />
+
+        foreach (var item in Model)
+        {
+            <div class="search-result">
+                @Html.ActionLink(item.Name, "Show",  new { id = item.Id })
+                <br />
+                
+                <div>
+                    @for (int i = 0; i < ((item.AverageRating + 50)/100); i++)
+                    {
+                        <span class="glyphicon bi-star"></span>
+                    }
+                </div>
+            </div>
+
+
+        }
+    }
+    else
+    {
+        <h2>Sorry, no results for @ViewBag.SearchString</h2>
+    }
+</div>

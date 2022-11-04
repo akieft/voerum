@@ -1,0 +1,44 @@
+﻿@using System.Diagnostics
+@using Voerum.Controllers
+@using Voerum.Models
+@model Voerum.Models.Recipe
+<div id="top3">
+    <div>
+        @{
+            int id1 = ViewBag.Id1;
+            string name1 = ViewBag.Name1;
+        }
+        @Html.ActionLink(name1, "Show", "Recipe", new { id = id1 }, null)
+
+        @for (int i = 0; i < ViewBag.Rating1; i++)
+        {
+            <span class="glyphicon bi-star"></span>
+        }
+    </div>
+
+    <div>
+        @{
+            int id2 = ViewBag.Id2;
+            string name2 = ViewBag.Name2;
+        }
+        @Html.ActionLink(name2, "Show", "Recipe", new { id = id2 }, null)
+
+        @for (int i = 0; i < ViewBag.Rating2; i++)
+        {
+            <span class="glyphicon bi-star"></span>
+        }
+    </div>
+
+    <div>
+        @{
+            int id3 = ViewBag.Id3;
+            string name3 = ViewBag.Name3;
+        }
+        @Html.ActionLink(name3, "Show", "Recipe",  new { id = id3 }, null)
+
+        @for (int i = 0; i < ViewBag.Rating3; i++)
+        {
+            <span class="glyphicon bi-star"></span>
+        }
+    </div>
+</div>

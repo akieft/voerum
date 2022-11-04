@@ -1,0 +1,19 @@
+﻿@using System.Runtime.Remoting.Contexts
+@using Microsoft.AspNetCore.Mvc.Rendering
+
+
+@{
+    Layout = null;
+}
+
+<div class="row">
+    <div class="container">
+        <h1 class="Profile-h1">Welkom terug <strong>@Context.User.Identity.Name</strong>!</h1>
+        <img class="ProfileImage" src="@Url.Action("UserPhotos", "Home")" />
+        <p class="p-profile"> @Html.ActionLink("Wijzig wachtwoord", "ChangePassword", "Manage")</p>
+
+        <h2 class="Profile-h2">Mijn recepten</h2>
+    </div>
+</div>
+
+

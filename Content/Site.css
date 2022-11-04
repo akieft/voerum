@@ -1,0 +1,216 @@
+﻿body {
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* Set padding to display errors that occur during databinding */
+.padding-error {
+    padding-top: 20px;
+}
+
+@media only screen and (max-width: 767px) {
+    .nofloat {
+        float: none;
+        padding: 10px 15px;
+    }
+}
+
+.logo {
+    display: block;
+    margin: auto;
+    padding: 2em;
+}
+
+.search-field {
+    width: 100%;
+    margin-bottom: 1em;
+    font-size: 32px;
+    padding: 16px;
+    text-align: center;
+    border-radius: 40px;
+    max-width: none;
+}
+
+footer {
+    margin: 0 10%;
+}
+
+nav {
+    font-size: 2em;
+}
+
+.section, .navbar {
+    padding: 16px 10%;
+    border-bottom: 1px solid black;
+    margin-bottom: 0;
+    max-height: unset;
+    transition: max-height 1s;
+}
+
+.repeat-list {
+    list-style-type: none;
+}
+
+.repeat-element {
+    margin: 4px 0;
+}
+
+li h4 {
+    display: inline-block;
+}
+
+#new-recipe-foldout {
+    background-color: whitesmoke;
+}
+
+.search-result-container {
+    background-color: whitesmoke;
+    border: 1px solid #ccc;
+    border-radius: 16px;
+
+}
+
+.search-result {
+    background-color: white;
+    width: 100%;
+    margin-bottom: 1em;
+    font-size: 20px;
+    padding: 16px;
+    border: 1px solid;
+    border-radius: 32px;
+    max-width: none;
+}
+
+.remove-width-restriction {
+    max-width: unset;
+}
+
+.repeat-list-add-button, .repeat-list-remove-button {
+    line-height: 2em;
+}
+
+.repeat-list-header {
+    font-size: 1.5em;
+}
+
+.section-close-button {
+    position: fixed;
+    right: 25px;
+    top: 25px;
+    font-size: 3em;
+    width: 1em;
+    height: 1em;
+    text-align: right;
+}
+
+.section-close-button:hover, .section-close-button:focus {
+    text-decoration: none;
+}
+
+.ProfileImage {
+    
+    width: 200px;
+    height: 200px;
+    background: #FFFFFF;
+    margin-left: 361px;
+    margin-top: 30px;
+    -moz-border-radius: 60px;
+    border-radius: 100px;
+    padding: 6px;
+    box-shadow: 0px 0px 20px #888;
+}
+
+.p-profile {
+    text-align: center;
+    font-size: 20px;
+    padding-top: 20px;
+}
+
+.Profile-h1 {
+    text-align: center;
+    padding-top: 50px;
+}
+
+.Profile-h2 {
+    text-align: center;
+    padding-top: 30px;
+}
+
+.row-content {
+    padding-left: 420px;
+}
+
+
+/* Clock css */
+@font-face {
+    font-family: 'BebasNeueRegular';
+    src: url('BebasNeue-webfont.eot');
+    src: url('BebasNeue-webfont.eot?#iefix') format('embedded-opentype'), url('BebasNeue-webfont.woff') format('woff'), url('BebasNeue-webfont.ttf') format('truetype'), url('BebasNeue-webfont.svg#BebasNeueRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.container {
+    width: 960px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.clock {
+    width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    color: #000000;
+}
+
+#Date {
+    font-family: 'BebasNeueRegular', Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    text-align: center;
+  
+}
+
+ul {
+    
+    margin: 0 auto;
+    padding: 0px;
+    list-style: none;
+    text-align: center;
+}
+
+ul li {
+    display: inline;
+    font-size: 1em;
+    text-align: center;
+    font-family: 'BebasNeueRegular', Arial, Helvetica, sans-serif;
+}
+
+#point {
+    position: relative;
+    -moz-animation: mymove 1s ease infinite;
+    -webkit-animation: mymove 1s ease infinite;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+
